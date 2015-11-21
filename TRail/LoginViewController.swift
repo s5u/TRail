@@ -33,10 +33,8 @@ class LoginViewController: UIViewController {
         user.signUp { (message) in
             if let unwrappedMessage = message {
                 self.showAlert(unwrappedMessage)
-                print("サインアップ失敗")
             } else {
                 self.dismissViewControllerAnimated(true, completion: nil)
-                print("サインアップ成功")
             }
         }
     }

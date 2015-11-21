@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YtW-Df-vDg" id="bUs-t6-KMO">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -286,6 +286,34 @@
                                     <action selector="tapCheckTaskListButton:" destination="4F9-8d-Ls7" eventType="touchUpInside" id="Unn-2E-4ed"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pdZ-7X-hXo">
+                                <rect key="frame" x="26" y="527" width="323" height="50"/>
+                                <color key="backgroundColor" red="0.4823529412" green="0.40784313729999999" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="50" id="RlH-nH-1mm"/>
+                                    <constraint firstAttribute="height" constant="50" id="Yxw-zZ-aED"/>
+                                    <constraint firstAttribute="height" constant="50" id="Zke-4a-x9B"/>
+                                    <constraint firstAttribute="height" constant="50" id="fXV-5q-ITz"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="ywH-Pt-cd0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="20"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="RlH-nH-1mm"/>
+                                        <exclude reference="Yxw-zZ-aED"/>
+                                        <exclude reference="fXV-5q-ITz"/>
+                                        <exclude reference="ywH-Pt-cd0"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="tapTargetDoneButton:" destination="4F9-8d-Ls7" eventType="touchUpInside" id="2cg-MU-toW"/>
+                                    <action selector="tapTodoDoneButton:" destination="RyL-QT-hj4" eventType="touchUpInside" id="8aI-uL-4OJ"/>
+                                    <action selector="tapTodoDoneButton:" destination="3mb-df-vcd" eventType="touchUpInside" id="bQR-Gd-Yun"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -294,7 +322,9 @@
                             <constraint firstItem="5Nj-VF-xkN" firstAttribute="top" secondItem="8oM-6A-T4N" secondAttribute="bottom" constant="10" id="Cxe-v9-6yf"/>
                             <constraint firstItem="dYV-WT-IEq" firstAttribute="top" secondItem="qBt-W7-ikW" secondAttribute="bottom" constant="10" id="EWt-FE-FG1"/>
                             <constraint firstItem="8oM-6A-T4N" firstAttribute="top" secondItem="dYV-WT-IEq" secondAttribute="bottom" constant="30" id="Gua-em-azx"/>
+                            <constraint firstItem="yks-67-5I9" firstAttribute="top" secondItem="pdZ-7X-hXo" secondAttribute="bottom" constant="10" id="JZo-c4-YEG"/>
                             <constraint firstAttribute="trailingMargin" secondItem="dYV-WT-IEq" secondAttribute="trailing" id="KGY-Q9-39Y"/>
+                            <constraint firstItem="pdZ-7X-hXo" firstAttribute="leading" secondItem="pft-Sy-K2x" secondAttribute="leadingMargin" constant="10" id="Ouz-gi-TBU"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ZXa-4O-3Oq" secondAttribute="trailing" id="Q2p-Ra-htZ"/>
                             <constraint firstItem="8oM-6A-T4N" firstAttribute="leading" secondItem="pft-Sy-K2x" secondAttribute="leadingMargin" id="Szp-8O-wg8"/>
                             <constraint firstItem="dYV-WT-IEq" firstAttribute="leading" secondItem="pft-Sy-K2x" secondAttribute="leadingMargin" id="Vma-pA-JpN"/>
@@ -303,6 +333,7 @@
                             <constraint firstItem="0Ro-tl-qhi" firstAttribute="top" secondItem="yks-67-5I9" secondAttribute="bottom" constant="30" id="cdY-EQ-FKp"/>
                             <constraint firstItem="yks-67-5I9" firstAttribute="leading" secondItem="pft-Sy-K2x" secondAttribute="leadingMargin" constant="10" id="dSC-SD-Y6P"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Ecl-ik-Hbs" secondAttribute="trailing" id="f8d-fG-E1z"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="pdZ-7X-hXo" secondAttribute="trailing" constant="10" id="h9i-n6-xQA"/>
                             <constraint firstItem="Ecl-ik-Hbs" firstAttribute="top" secondItem="ZXa-4O-3Oq" secondAttribute="bottom" constant="10" id="iJR-Pb-I6a"/>
                             <constraint firstItem="5Nj-VF-xkN" firstAttribute="leading" secondItem="pft-Sy-K2x" secondAttribute="leadingMargin" id="ijB-KY-JE2"/>
                             <constraint firstAttribute="trailingMargin" secondItem="8oM-6A-T4N" secondAttribute="trailing" id="nwh-52-0EM"/>
@@ -317,6 +348,7 @@
                     <connections>
                         <outlet property="checkTaskListButton" destination="yks-67-5I9" id="QZB-mz-ivp"/>
                         <outlet property="targetDescriptionView" destination="5Nj-VF-xkN" id="xe5-3e-0QQ"/>
+                        <outlet property="targetDoneButton" destination="pdZ-7X-hXo" id="Zn9-G5-cbQ"/>
                         <outlet property="targetField" destination="dYV-WT-IEq" id="gMi-Z0-e35"/>
                         <outlet property="targetPrioritySegment" destination="Ecl-ik-Hbs" id="2GZ-h6-tVs"/>
                         <segue destination="9q7-J8-1xb" kind="show" identifier="TaskListTableViewController" id="wXc-qo-Fbr"/>
@@ -442,7 +474,7 @@
                                 <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pMF-9r-LEB" id="rw0-di-yWN">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -546,21 +578,52 @@
                                     <action selector="tapCheckTodoList:" destination="RyL-QT-hj4" eventType="touchUpInside" id="DO4-sp-03z"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rkQ-ua-F3M">
+                                <rect key="frame" x="26" y="527" width="323" height="50"/>
+                                <color key="backgroundColor" red="0.4823529412" green="0.40784313729999999" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="BFV-Xr-AY8"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="S55-z0-k6l"/>
+                                    <constraint firstAttribute="height" constant="50" id="pV7-Ma-b6Y"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="50" id="xrI-6y-wQm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="20"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="S55-z0-k6l"/>
+                                        <exclude reference="pV7-Ma-b6Y"/>
+                                        <exclude reference="xrI-6y-wQm"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="tapTodoDoneButton:" destination="3mb-df-vcd" eventType="touchUpInside" id="5kb-wS-g6v"/>
+                                    <action selector="tapTodoDoneButton:" destination="RyL-QT-hj4" eventType="touchUpInside" id="ObV-OF-iSA"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="XJU-bz-IxJ" firstAttribute="leading" secondItem="blD-gu-a4V" secondAttribute="leadingMargin" id="1la-pt-XdF"/>
                             <constraint firstItem="7C5-da-v1T" firstAttribute="leading" secondItem="blD-gu-a4V" secondAttribute="leadingMargin" id="4Mq-Do-ikv"/>
                             <constraint firstItem="e7s-23-O9q" firstAttribute="leading" secondItem="blD-gu-a4V" secondAttribute="leadingMargin" constant="10" id="5En-ah-0jH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rkQ-ua-F3M" secondAttribute="trailing" constant="10" id="8EX-7u-L2W"/>
                             <constraint firstItem="7C5-da-v1T" firstAttribute="top" secondItem="zIU-NO-nfp" secondAttribute="bottom" constant="10" id="Feh-Qx-Mq1"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rkQ-ua-F3M" secondAttribute="trailing" constant="10" id="HPR-Z9-RtK"/>
                             <constraint firstItem="s71-QN-B0O" firstAttribute="top" secondItem="e7s-23-O9q" secondAttribute="bottom" constant="30" id="J4q-Ka-FTq"/>
                             <constraint firstAttribute="trailingMargin" secondItem="2Uh-SN-GtQ" secondAttribute="trailing" id="LLY-Au-qTE"/>
                             <constraint firstItem="XJU-bz-IxJ" firstAttribute="top" secondItem="Yzz-VS-z6d" secondAttribute="bottom" constant="30" id="PMH-d7-eae"/>
+                            <constraint firstItem="rkQ-ua-F3M" firstAttribute="leading" secondItem="blD-gu-a4V" secondAttribute="leadingMargin" constant="10" id="PoJ-Cg-mem"/>
                             <constraint firstItem="WpD-W1-AEA" firstAttribute="leading" secondItem="blD-gu-a4V" secondAttribute="leadingMargin" id="Sno-tg-loc"/>
                             <constraint firstAttribute="trailingMargin" secondItem="7C5-da-v1T" secondAttribute="trailing" id="WLf-7u-WIS"/>
+                            <constraint firstItem="e7s-23-O9q" firstAttribute="top" secondItem="rkQ-ua-F3M" secondAttribute="bottom" constant="10" id="YxV-Wo-1z4"/>
                             <constraint firstAttribute="trailingMargin" secondItem="WpD-W1-AEA" secondAttribute="trailing" id="ZZe-ge-srI"/>
                             <constraint firstItem="Yzz-VS-z6d" firstAttribute="top" secondItem="WpD-W1-AEA" secondAttribute="bottom" constant="10" id="adE-FJ-Baz"/>
+                            <constraint firstItem="rkQ-ua-F3M" firstAttribute="leading" secondItem="blD-gu-a4V" secondAttribute="leadingMargin" constant="10" id="apK-al-dBK"/>
                             <constraint firstItem="2Uh-SN-GtQ" firstAttribute="top" secondItem="XJU-bz-IxJ" secondAttribute="bottom" constant="10" id="b4h-6e-Rpm"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rkQ-ua-F3M" secondAttribute="trailing" constant="10" id="cj2-S8-xx9"/>
                             <constraint firstItem="zIU-NO-nfp" firstAttribute="top" secondItem="9CN-ie-kC2" secondAttribute="bottom" constant="30" id="fQ7-9C-7IQ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="XJU-bz-IxJ" secondAttribute="trailing" id="j1j-sR-BN8"/>
                             <constraint firstAttribute="trailingMargin" secondItem="e7s-23-O9q" secondAttribute="trailing" constant="10" id="j7v-Jw-p2w"/>
@@ -568,15 +631,27 @@
                             <constraint firstItem="zIU-NO-nfp" firstAttribute="leading" secondItem="blD-gu-a4V" secondAttribute="leadingMargin" id="uOR-Ap-qxU"/>
                             <constraint firstItem="WpD-W1-AEA" firstAttribute="top" secondItem="7C5-da-v1T" secondAttribute="bottom" constant="30" id="uTQ-Js-YRA"/>
                             <constraint firstItem="Yzz-VS-z6d" firstAttribute="leading" secondItem="blD-gu-a4V" secondAttribute="leadingMargin" id="ujT-RK-f8r"/>
+                            <constraint firstItem="rkQ-ua-F3M" firstAttribute="leading" secondItem="blD-gu-a4V" secondAttribute="leadingMargin" constant="10" id="wqc-i8-Ss9"/>
+                            <constraint firstItem="e7s-23-O9q" firstAttribute="top" secondItem="rkQ-ua-F3M" secondAttribute="bottom" constant="10" id="y9r-vI-sZp"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Yzz-VS-z6d" secondAttribute="trailing" id="yat-KH-cWX"/>
                             <constraint firstItem="2Uh-SN-GtQ" firstAttribute="leading" secondItem="blD-gu-a4V" secondAttribute="leadingMargin" id="zzR-yz-m8C"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="8EX-7u-L2W"/>
+                                <exclude reference="PoJ-Cg-mem"/>
+                                <exclude reference="cj2-S8-xx9"/>
+                                <exclude reference="wqc-i8-Ss9"/>
+                                <exclude reference="y9r-vI-sZp"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="Vwi-IM-8cP"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="checkTodoListButton" destination="e7s-23-O9q" id="wtg-cP-gxp"/>
                         <outlet property="taskDescriptionView" destination="Yzz-VS-z6d" id="eBG-MM-YPA"/>
+                        <outlet property="taskDoneButton" destination="rkQ-ua-F3M" id="i4F-9o-BWq"/>
                         <outlet property="taskField" destination="7C5-da-v1T" id="LwE-tF-arJ"/>
                         <outlet property="taskPrioritySegment" destination="2Uh-SN-GtQ" id="JGT-Jl-Mbw"/>
                         <segue destination="C91-H3-vrU" kind="show" identifier="TodoListTableViewController" id="6Sy-Ff-hJh"/>
@@ -599,7 +674,7 @@
                                 <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aKE-9c-MLi" id="RfL-0Z-j1D">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -676,17 +751,17 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="irj-ae-M8k">
-                                <rect key="frame" x="16" y="587" width="343" height="50"/>
+                                <rect key="frame" x="26" y="587" width="323" height="50"/>
                                 <color key="backgroundColor" red="0.4823529411764706" green="0.40784313725490196" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="x05-u6-vwX"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="20"/>
-                                <state key="normal" title="Complete">
+                                <state key="normal" title="Done">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="tapCompleteButton:" destination="3mb-df-vcd" eventType="touchUpInside" id="1Gp-TB-H5D"/>
+                                    <action selector="tapTodoDoneButton:" destination="3mb-df-vcd" eventType="touchUpInside" id="3IP-NV-hWg"/>
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="br6-k3-Sa4">
@@ -712,8 +787,8 @@
                             <constraint firstItem="c3j-Tu-nOL" firstAttribute="top" secondItem="irj-ae-M8k" secondAttribute="bottom" constant="30" id="DMf-UK-sLN"/>
                             <constraint firstItem="br6-k3-Sa4" firstAttribute="top" secondItem="Ldl-sa-3fb" secondAttribute="bottom" constant="10" id="Dae-VZ-Jkk"/>
                             <constraint firstItem="br6-k3-Sa4" firstAttribute="leading" secondItem="WNI-XF-vAe" secondAttribute="leadingMargin" id="J0m-c6-IR2"/>
-                            <constraint firstItem="irj-ae-M8k" firstAttribute="leading" secondItem="WNI-XF-vAe" secondAttribute="leadingMargin" id="KXD-bx-RbK"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="irj-ae-M8k" secondAttribute="trailing" id="M99-Pk-DFf"/>
+                            <constraint firstItem="irj-ae-M8k" firstAttribute="leading" secondItem="WNI-XF-vAe" secondAttribute="leadingMargin" constant="10" id="KXD-bx-RbK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="irj-ae-M8k" secondAttribute="trailing" constant="10" id="M99-Pk-DFf"/>
                             <constraint firstAttribute="trailingMargin" secondItem="br6-k3-Sa4" secondAttribute="trailing" id="Mmo-fN-pi5"/>
                             <constraint firstItem="Clf-k8-aQk" firstAttribute="leading" secondItem="WNI-XF-vAe" secondAttribute="leadingMargin" id="N2k-Uo-wXk"/>
                             <constraint firstAttribute="trailingMargin" secondItem="uzO-pU-H0h" secondAttribute="trailing" id="ZpT-Rx-0aT"/>
@@ -729,8 +804,8 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="completeButton" destination="irj-ae-M8k" id="xdN-L2-gsH"/>
                         <outlet property="todoDescriptionView" destination="Clf-k8-aQk" id="P5Y-QD-0Im"/>
+                        <outlet property="todoDoneButton" destination="irj-ae-M8k" id="1xx-k5-ItB"/>
                         <outlet property="todoField" destination="jI0-Ga-v35" id="PJQ-6g-m55"/>
                         <outlet property="todoPrioritySegment" destination="br6-k3-Sa4" id="oxE-AW-I4O"/>
                     </connections>

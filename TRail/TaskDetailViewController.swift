@@ -3,6 +3,7 @@ import UIKit
 import Parse
 
 class TaskDetailViewController: UIViewController {
+    @IBOutlet weak var taskDoneButton: UIButton!
     @IBOutlet weak var checkTodoListButton: UIButton!
     @IBOutlet weak var taskPrioritySegment: UISegmentedControl!
     @IBOutlet weak var taskDescriptionView: UITextView!
@@ -15,6 +16,7 @@ class TaskDetailViewController: UIViewController {
         taskDescriptionView.layer.borderColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1).CGColor
         taskDescriptionView.layer.borderWidth = 1
         checkTodoListButton.layer.cornerRadius = 5
+        taskDoneButton.layer.cornerRadius = 5
         super.viewDidLoad()
     }
     
@@ -52,7 +54,6 @@ class TaskDetailViewController: UIViewController {
                     updateTask!["priority"] = self.taskPrioritySegment.selectedSegmentIndex
                     updateTask!.saveInBackgroundWithBlock { (success, error) in
                         if success {
-                            print("Updated!")
                             self.showAlert("Updated!")
                             self.title = self.taskField.text
                         }
@@ -89,6 +90,24 @@ class TaskDetailViewController: UIViewController {
             todoListTableViewController.target = self.selectedTarget
             todoListTableViewController.task = self.selectedTask
         }
+    }
+    
+    @IBAction func tapTodoDoneButton(sender: UIButton) {
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+        let query = PFQuery(className: "Task")
+        query.getObjectInBackgroundWithId((task?.id)!, block: { (doneTask, error) -> Void in
+            if error == nil {
+                doneTask!["objectId"] = self.task!.id
+                doneTask!["achieve"] = self.task?.achieve == false
+                doneTask!.saveInBackgroundWithBlock { (success, error) in
+                    if success {
+                        if doneTask!["achieve"] as? Bool == true {
+                            self.showAlert("Done!")
+                        }
+                    }
+                }
+            }
+        })
     }
     
     override func didReceiveMemoryWarning() {

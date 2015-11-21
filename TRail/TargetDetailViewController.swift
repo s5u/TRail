@@ -3,6 +3,7 @@ import UIKit
 import Parse
 
 class TargetDetailViewController: UIViewController {
+    @IBOutlet weak var targetDoneButton: UIButton!
     @IBOutlet weak var checkTaskListButton: UIButton!
     @IBOutlet weak var targetPrioritySegment: UISegmentedControl!
     @IBOutlet weak var targetDescriptionView: UITextView!
@@ -14,6 +15,7 @@ class TargetDetailViewController: UIViewController {
         targetDescriptionView.layer.borderColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1).CGColor
         targetDescriptionView.layer.borderWidth = 1
         checkTaskListButton.layer.cornerRadius = 5
+        targetDoneButton.layer.cornerRadius = 5
         super.viewDidLoad()
 
     }
@@ -53,7 +55,6 @@ class TargetDetailViewController: UIViewController {
                     updateTarget!["priority"] = self.targetPrioritySegment.selectedSegmentIndex
                     updateTarget!.saveInBackgroundWithBlock {(success, error) in
                         if success {
-                            print("Updated!")
                             self.showAlert("Updated!")
                             self.title = self.targetField.text
                             
@@ -94,6 +95,24 @@ class TargetDetailViewController: UIViewController {
             let taskListTableViewController = segue.destinationViewController as! TaskListTableViewController
             taskListTableViewController.target = self.selectedTarget
         }
+    }
+    
+    @IBAction func tapTargetDoneButton(sender: UIButton) {
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+        let query = PFQuery(className: "Target")
+        query.getObjectInBackgroundWithId((target?.id)!, block: { (doneTarget, error) -> Void in
+            if error == nil {
+                doneTarget!["objectId"] = self.target!.id
+                doneTarget!["achieve"] = self.target?.achieve == false
+                doneTarget!.saveInBackgroundWithBlock { (success, error) in
+                    if success {
+                        if doneTarget!["achieve"] as? Bool == true {
+                            self.showAlert("Done!")
+                        }
+                    }
+                }
+            }
+        })
     }
     
     override func didReceiveMemoryWarning() {

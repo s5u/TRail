@@ -3,7 +3,7 @@ import UIKit
 import Parse
 
 class TodoDetailViewController: UIViewController {
-    @IBOutlet weak var completeButton: UIButton!
+    @IBOutlet weak var todoDoneButton: UIButton!
     @IBOutlet weak var todoPrioritySegment: UISegmentedControl!
     @IBOutlet weak var todoDescriptionView: UITextView!
     @IBOutlet weak var todoField: UITextField!
@@ -15,7 +15,7 @@ class TodoDetailViewController: UIViewController {
         todoDescriptionView.layer.cornerRadius = 5
         todoDescriptionView.layer.borderColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1).CGColor
         todoDescriptionView.layer.borderWidth = 1
-        completeButton.layer.cornerRadius = 5
+        todoDoneButton.layer.cornerRadius = 5
         super.viewDidLoad()
     }
     
@@ -48,7 +48,6 @@ class TodoDetailViewController: UIViewController {
                     updateTodo!["priority"] = self.todoPrioritySegment.selectedSegmentIndex
                     updateTodo!.saveInBackgroundWithBlock { (success, error) in
                         if success {
-                            print("Updated!")
                             self.showAlert("Updated!")
                             self.title = self.todoField.text
                         }
@@ -68,19 +67,17 @@ class TodoDetailViewController: UIViewController {
         self.presentViewController(alertController, animated: true, completion: nil)
     }
     
-
-    @IBAction func tapCompleteButton(sender: UIButton) {
+    @IBAction func tapTodoDoneButton(sender: UIButton) {
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         let query = PFQuery(className: "Todo")
-        query.getObjectInBackgroundWithId((todo?.id)!, block: { (completeTodo, error) -> Void in
+        query.getObjectInBackgroundWithId((todo?.id)!, block: { (doneTodo, error) -> Void in
             if error == nil {
-                completeTodo!["objectId"] = self.todo!.id
-                completeTodo!["achieve"] = self.todo?.achieve == false
-                completeTodo!.saveInBackgroundWithBlock { (success, error) in
+                doneTodo!["objectId"] = self.todo!.id
+                doneTodo!["achieve"] = self.todo?.achieve == false
+                doneTodo!.saveInBackgroundWithBlock { (success, error) in
                     if success {
-                        print("Completed!")
-                        if completeTodo!["achieve"] as? Bool == true {
-                            self.showAlert("Completed!")
+                        if doneTodo!["achieve"] as? Bool == true {
+                            self.showAlert("Done!")
                         }
                     }
                 }
