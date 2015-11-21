@@ -73,7 +73,7 @@ class TaskDetailViewController: UIViewController {
         self.presentViewController(alertController, animated: true, completion: nil)
     }
     
-    //TodoListへの情報受け渡し用の変数
+    //TodoListへの情報受け渡し用の変数//
     var selectedTarget: Target?
     var selectedTask: Task?
 
